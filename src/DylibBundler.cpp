@@ -262,7 +262,7 @@ void collectDependencies(const std::string& filename, std::vector<std::string>& 
     bool searching = false;
     for(const auto& line : raw_lines) {
         const auto &is_prefix = [&line](const char *const p) { return line.find(p) != std::string::npos; };
-        if (is_prefix("cmd LC_LOAD_DYLIB") || is_prefix("cmd LC_REEXPORT_DYLIB"))
+        if (is_prefix("cmd LC_LOAD_DYLIB") || is_prefix("cmd LC_REEXPORT_DYLIB") || is_prefix("cmd LC_ID_DYLIB"))
         {
             if (searching)
             {
